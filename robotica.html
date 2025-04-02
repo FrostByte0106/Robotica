@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Robotica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #101820;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      background: #1b263b;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.2rem;
+      transition: 0.4s;
+      margin-top: 0.5rem;
+    }
+    .active, .accordion:hover {
+      background-color: #ccc;
+    }
+    .panel {
+      padding: 0 1rem;
+      background-color: white;
+      display: none;
+      overflow: hidden;
+    }
+    .panel p {
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>La Robotica</h1>
+  <p>Esploriamo il mondo dei robot: dalla storia alle applicazioni moderne</p>
+</header>
+
+<nav>
+  <a href="#storia">Storia</a>
+  <a href="#applicazioni">Applicazioni</a>
+  <a href="#tipi">Tipi di Robot</a>
+  <a href="#quiz">Quiz</a>
+</nav>
+
+<section id="storia">
+  <h2>Storia della Robotica</h2>
+  <button class="accordion">Origini della Robotica</button>
+  <div class="panel">
+    <p>La robotica ha radici antiche, con automi meccanici presenti già nelle civiltà greca e cinese...</p>
+  </div>
+
+  <button class="accordion">Sviluppi nel XX Secolo</button>
+  <div class="panel">
+    <p>Nel XX secolo, la robotica ha visto una rapida evoluzione con l'introduzione di robot industriali...</p>
+  </div>
+
+  <button class="accordion">Robotica Contemporanea</button>
+  <div class="panel">
+    <p>Oggi, la robotica è integrata in numerosi settori, dalla medicina all'esplorazione spaziale...</p>
+  </div>
+</section>
+
+<section id="applicazioni">
+  <h2>Applicazioni della Robotica</h2>
+  <button class="accordion">Medicina</button>
+  <div class="panel">
+    <p>I robot chirurgici, come il sistema Da Vinci, permettono interventi minimamente invasivi con alta precisione...</p>
+  </div>
+
+  <button class="accordion">Industria</button>
+  <div class="panel">
+    <p>Nel settore industriale, i robot automatizzano processi di produzione, migliorando efficienza e sicurezza...</p>
+  </div>
+
+  <button class="accordion">Esplorazione Spaziale</button>
+  <div class="panel">
+    <p>Rover come Curiosity esplorano Marte, raccogliendo dati scientifici fondamentali per la ricerca...</p>
+  </div>
+</section>
+
+<section id="tipi">
+  <h2>Tipi di Robot</h2>
+  <button class="accordion">Robot Industriali</button>
+  <div class="panel">
+    <p>Progettati per compiti ripetitivi nelle catene di montaggio, migliorano la produttività e la qualità...</p>
+  </div>
+
+  <button class="accordion">Robot Umanoidi</button>
+  <div class="panel">
+    <p>Imitano l'aspetto e i movimenti umani, utilizzati in ricerca e assistenza personale...</p>
+  </div>
+
+  <button class="accordion">Droni</button>
+  <div class="panel">
+    <p>Veicoli aerei senza pilota utilizzati in fotografia, sorveglianza e consegne...</p>
+  </div>
+</section>
+
+<section id="quiz">
+  <h2>Quiz: Quanto ne sai sulla robotica?</h2>
+  <p>1. In che anno è stato presentato ASIMO?</p>
+  <input type="text" id="q1" placeholder="Scrivi la risposta qui...">
+  <button onclick="controllaRisposta()">Verifica</button>
+  <p id="feedback"></p>
+</section>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+
+  function controllaRisposta() {
+    var risposta = document.getElementById("q1").value;
+    var feedback = document.getElementById("feedback");
+    if (risposta === "2000") {
+      feedback.textContent = "Corretto!";
+      feedback.style.color = "green";
+    } else {
+      feedback.textContent = "Risposta errata. Riprova.";
+      feedback.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
